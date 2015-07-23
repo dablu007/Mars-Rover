@@ -60,4 +60,12 @@ public class MarsRoverTest {
         marsRover.moveRover("MMM");
         assertEquals(new MarsRover(0,-3,"S"),marsRover.getPosition());
     }
+
+    @Test
+    public void shouldMoveTheRoverWhenDirectionsIsNorthAndInputIsChanging() {
+        MarsRover marsRover = new MarsRover(1,2,"N");
+
+        marsRover.moveRover("LMLMLMLMM");
+        assertEquals(new MarsRover(1,3,"N"),marsRover.getPosition());
+    }
 }
