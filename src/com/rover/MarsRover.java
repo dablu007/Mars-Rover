@@ -48,7 +48,7 @@ public class MarsRover {
     private void moveRoverForward(String input) {
         if (direction.equals("N") && input.equals("M") && y < plateauPositionY)
             this.y += 1;
-        else if (direction.equals("E") && input.equals("M"))
+        else if (direction.equals("E") && input.equals("M") && x < plateauPositionX)
             this.x += 1;
         else if (direction.equals("W") && input.equals("M"))
             this.x += -1;

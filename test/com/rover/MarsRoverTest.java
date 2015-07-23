@@ -76,4 +76,12 @@ public class MarsRoverTest {
         marsRover.moveRover("LMLMLMLMMMMM");
         assertEquals(new MarsRover(1,5,"N"),marsRover.getPosition());
     }
+
+    @Test
+    public void shouldMoveTheRoverToTheEndWhenDirectionsIsEastAndPlaneIsEnded() {
+        MarsRover marsRover = new MarsRover(1,2,"E");
+
+        marsRover.moveRover("LRMMMMMM");
+        assertEquals(new MarsRover(5,2,"E"),marsRover.getPosition());
+    }
 }
