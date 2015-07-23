@@ -47,6 +47,8 @@ public class MarsRover {
             this.y += 1;
         else if (direction.equals("E") && input.equals("M"))
             this.x += 1;
+        else if (direction.equals("W") && input.equals("M"))
+            this.x += -1;
 
     }
 
