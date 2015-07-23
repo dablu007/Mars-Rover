@@ -9,6 +9,9 @@ public class MarsRover {
     private int y;
     private String direction;
     private static final List<String> DIRECTIONS = Arrays.asList("N", "E", "S", "W");
+    private final int plateauPositionY = 5;
+    private final int plateauPositionX = 5;
+
     public MarsRover(int x, int y, String direction) {
         this.x = x;
         this.y = y;
@@ -43,7 +46,7 @@ public class MarsRover {
     }
 
     private void moveRoverForward(String input) {
-        if (direction.equals("N") && input.equals("M"))
+        if (direction.equals("N") && input.equals("M") && y < plateauPositionY)
             this.y += 1;
         else if (direction.equals("E") && input.equals("M"))
             this.x += 1;
