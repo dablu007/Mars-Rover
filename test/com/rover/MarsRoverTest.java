@@ -21,6 +21,7 @@ public class MarsRoverTest {
         marsRover.moveRover("RL");
         assertEquals(new MarsRover(0,0,"N"),marsRover.getPosition());
     }
+
     @Test
     public void shouldGiveTheRoverPositionWhenMovedForDirectionsDiffrently() {
         MarsRover marsRover = new MarsRover(0,0,"N");
@@ -29,4 +30,11 @@ public class MarsRoverTest {
         assertEquals(new MarsRover(0,0,"N"),marsRover.getPosition());
     }
 
+    @Test
+    public void shouldMoveTheRover() {
+        MarsRover marsRover = new MarsRover(0,0,"N");
+
+        marsRover.moveRover("MMM");
+        assertEquals(new MarsRover(0,3,"N"),marsRover.getPosition());
+    }
 }

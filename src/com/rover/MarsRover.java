@@ -34,8 +34,15 @@ public class MarsRover {
 
     public void moveRover(String input) {
         for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == 'M')
+                moveRoverForward();
+            else
             changeDirection(Character.toString(input.charAt(i)));
         }
+    }
+
+    private void moveRoverForward() {
+        this.y = 3;
     }
 
     @Override
