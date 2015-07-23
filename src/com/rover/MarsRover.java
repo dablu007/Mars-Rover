@@ -5,6 +5,8 @@ public class MarsRover {
     private int x;
     private int y;
     private String direction;
+    private final int plateauPositionX = 5;
+    private final int plateauPositionY = 5;
 
     public MarsRover(int x, int y, String direction) {
         this.x = x;
@@ -36,4 +38,15 @@ public class MarsRover {
         result = 31 * result + (direction != null ? direction.hashCode() : 0);
         return result;
     }
+
+    public void changeDirection(String input) {
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == 'R' && direction.equals("N"))
+                direction = "E";
+            if (input.charAt(i) == 'R' && direction.equals("E"))
+                direction = "S";
+        }
+
+    }
+
 }
