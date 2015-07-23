@@ -1,13 +1,14 @@
 package com.rover;
 
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MarsRover {
     private int x;
     private int y;
     private String direction;
-    private final int plateauPositionX = 5;
-    private final int plateauPositionY = 5;
-
+    private static final List<String> DIRECTIONS = Arrays.asList("N", "E", "S", "W");
     public MarsRover(int x, int y, String direction) {
         this.x = x;
         this.y = y;
@@ -16,6 +17,25 @@ public class MarsRover {
 
     public MarsRover getPosition() {
         return new MarsRover(x,y, direction);
+    }
+
+    public void changeDirection(String input) {
+        int value;
+        if (input.equals("L"))
+            value = 1;
+        value = 3;
+        turnDirection(value);
+
+    }
+
+    public void turnDirection(int value){
+        direction = DIRECTIONS.get((DIRECTIONS.indexOf(direction) + value) % DIRECTIONS.size());
+    }
+
+    public void moveRover(String input) {
+        for (int i = 0; i < input.length(); i++) {
+            changeDirection(Character.toString(input.charAt(i)));
+        }
     }
 
     @Override
@@ -37,19 +57,5 @@ public class MarsRover {
         result = 31 * result + y;
         result = 31 * result + (direction != null ? direction.hashCode() : 0);
         return result;
-    }
-
-    public void changeDirection(String input) {
-        if (input == "R" && direction.equals("N"))
-            direction = "E";
-        else if (input == "L" && direction.equals("E"))
-            direction = "N";
-
-    }
-
-    public void moveRover(String input) {
-        for (int i = 0; i < input.length(); i++) {
-            changeDirection(Character.toString(input.charAt(i)));
-        }
     }
 }
