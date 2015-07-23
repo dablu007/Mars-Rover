@@ -18,7 +18,7 @@ public class MarsRoverTest {
     public void shouldGiveTheRoverPositionWhenMovedForDirectionOnly() {
         MarsRover marsRover = new MarsRover(0,0,"N");
 
-        marsRover.changeDirection("RL");
-        assertEquals(new MarsRover(0,0,"S"),marsRover.getPosition());
+        marsRover.moveRover("RL");
+        assertEquals(new MarsRover(0,0,"N"),marsRover.getPosition());
     }
 }

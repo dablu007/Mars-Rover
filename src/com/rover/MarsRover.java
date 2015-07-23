@@ -40,13 +40,16 @@ public class MarsRover {
     }
 
     public void changeDirection(String input) {
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == 'R' && direction.equals("N"))
-                direction = "E";
-            if (input.charAt(i) == 'R' && direction.equals("E"))
-                direction = "S";
-        }
+        if (input == "R" && direction.equals("N"))
+            direction = "E";
+        else if (input == "L" && direction.equals("E"))
+            direction = "N";
 
     }
 
+    public void moveRover(String input) {
+        for (int i = 0; i < input.length(); i++) {
+            changeDirection(Character.toString(input.charAt(i)));
+        }
+    }
 }
